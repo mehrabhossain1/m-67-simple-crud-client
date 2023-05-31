@@ -5,9 +5,30 @@ import { useLoaderData } from "react-router-dom";
 const Update = () => {
   const loadedData = useLoaderData();
 
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    console.log(name, email);
+  };
+
   return (
     <div>
-      <h2>User Information: {loadedData.name}</h2>
+      <h2>User Information of: {loadedData.name}</h2>
+
+      <form onSubmit={handleUpdate}>
+        <input type="text" name="name" defaultValue={loadedData?.name} id="" />
+        <br />
+        <input
+          type="email"
+          name="email"
+          defaultValue={loadedData?.email}
+          id=""
+        />
+        <br />
+        <input type="submit" value="Update" />
+      </form>
     </div>
   );
 };
