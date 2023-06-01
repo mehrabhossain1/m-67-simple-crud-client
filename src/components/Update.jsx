@@ -8,9 +8,11 @@ const Update = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
+
     const name = form.name.value;
     const email = form.email.value;
     console.log(name, email);
+
     const updatedUser = { name, email };
 
     fetch(`http://localhost:5000/users/${loadedData._id}`, {
